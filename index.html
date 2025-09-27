@@ -172,8 +172,8 @@
                 </div>
                 
                 <div class="team-member fade-in">
-                    <div class="team-avatar" role="img" aria-label="Mishkarul Ala">MA</div>
-                    <h3>Mishkarul Ala</h3>
+                    <div class="team-avatar" role="img" aria-label="Mishkatul Ala">MA</div>
+                    <h3>Mishkatul Ala</h3>
                     <div class="role">Marketing Manager</div>
                     <div class="description">Strategic marketing professional focused on building strong client relationships and expanding market presence.</div>
                 </div>
@@ -392,6 +392,12 @@
         // Enhanced Button Click Effects
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function(e) {
+                // If it's a link, don't prevent its default action
+                if (this.tagName.toLowerCase() === 'a' && this.getAttribute('href')) {
+                    // We just want the ripple, not to stop the navigation
+                } else {
+                    e.preventDefault();
+                }
                 let ripple = document.createElement('span');
                 let rect = this.getBoundingClientRect();
                 let size = Math.max(rect.width, rect.height);
